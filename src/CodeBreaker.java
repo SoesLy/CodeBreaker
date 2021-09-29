@@ -1,10 +1,24 @@
+import java.util.Locale;
+
 public class CodeBreaker {
     public static void main(String[] args) {
 
-        System.out.println(numberCypherEncoder("hej"));
+        //Encoder//
+        String encodedString = "Halløj";
+        encodedString = encodedString.toLowerCase();
 
-        int[] hej = {8, 5, 18};
-        System.out.println(numberCypherDecoder());
+        String stringEncodedToNumbers = numberCypherEncoder(encodedString);
+
+        String encodedToNumbersResult = "The encoded message: " + stringEncodedToNumbers;
+        System.out.println(encodedToNumbersResult);
+
+
+        //Decoder//
+        String[] encodedStringArray = stringEncodedToNumbers.split("");
+
+        String decodedString = numberCypherDecoder(encodedStringArray);
+        String decodedStringResult = "The decoded message: " + decodedString;
+        System.out.println(decodedStringResult);
 
     }
     //Methode Encoder//
@@ -32,17 +46,17 @@ public class CodeBreaker {
 
 
     //Methode Decoder//
-    public static String numberCypherDecoder(String decoder) {
+    public static String numberCypherDecoder(String[] decode) {
 
         String stringToDecode = "";
 
-        //Finde the alphabet
         String alphabet = "abcdefghijklmnopqrstuvwxyzæøå";
 
-        for (int i = 0; i < decoder.length(); i++) {
-            int indexToString = decoder.indexOf(i);
+        for (int i = 0; i < decode.length; i++) {
+            String indexToString = decode[i];
+            int stringToInt = Integer.parseInt(indexToString) - 1;
 
-            int letterIndexNumbers = alphabet.charAt(indexToString-1);
+            int letterIndexNumbers = alphabet.charAt(stringToInt);
 
             stringToDecode = stringToDecode + letterIndexNumbers ++;
         }
