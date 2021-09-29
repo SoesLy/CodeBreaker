@@ -44,7 +44,7 @@ public class CodeBreaker {
 
             int letterIndexNumbers = alphabet.charAt(indexToString-1);
 
-            stringToDecode = stringToDecode + letterIndexNumbers + ";";
+            stringToDecode = stringToDecode + letterIndexNumbers ++;
         }
 
         return stringToDecode;
