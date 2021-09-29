@@ -3,30 +3,52 @@ public class CodeBreaker {
 
         System.out.println(numberCypherEncoder("hej"));
 
-    }
+        int[] hej = {8, 5, 18};
+        System.out.println(numberCypherDecoder());
 
-    public static int numberCypherEncoder(String encoder) {
+    }
+    //Methode Encoder//
+    public static String numberCypherEncoder(String encoder) {
+
+        //Type of return
+        String stringToEncode = "";
 
         //Make the alphabet
         String alphabet = "abcdefghijklmnopqrstuvwxyzæøå";
 
-        //Take a String to encode
-        //String stringToEncode = "Hope is a good thing, maybe the best of things";
+        //Run the string through a for loop
+        for (int i = 0; i < encoder.length(); i++) {
+            char stringToIndex = encoder.charAt(i);
 
-        //Give the alphabet some index numbers
-        int indexNumbers = alphabet.indexOf(encoder)+1;
+            //Give the alphabet some index numbers
+            int indexNumbers = alphabet.indexOf(stringToIndex) + 1;
 
-        return indexNumbers;
+            //Gonna add my type to my int
+            stringToEncode = stringToEncode + indexNumbers + ";";
+        }
+
+        return stringToEncode;
     }
 
-    public static String numberCypherDecoder(int decoder) {
+
+    //Methode Decoder//
+    public static String numberCypherDecoder(String decoder) {
+
+        String stringToDecode = "";
 
         //Finde the alphabet
         String alphabet = "abcdefghijklmnopqrstuvwxyzæøå";
 
-        //Find the index numbers to the letters
-        int letterIndexNumbers = alphabet.charAt(decoder);
+        for (int i = 0; i < decoder.length(); i++) {
+            int indexToString = decoder.indexOf(i);
 
-        return "";
+            int letterIndexNumbers = alphabet.charAt(indexToString-1);
+
+            stringToDecode = stringToDecode + letterIndexNumbers + ";";
+        }
+
+        return stringToDecode;
     }
+
+
 }
