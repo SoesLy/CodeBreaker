@@ -21,6 +21,8 @@ public class CodeBreaker {
         System.out.println(decodedStringResult);
 
     }
+    //Methods//
+
     //Methode Encoder//
     public static String numberCypherEncoder(String encoder) {
 
@@ -62,6 +64,11 @@ public class CodeBreaker {
         }
 
         return stringToDecode;
+    }
+
+    public static String ceasarEncoder(String message) {
+
+        int index = numberCypherEncoder(message);
     }
 
 
