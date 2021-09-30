@@ -6,7 +6,7 @@ public class CodeBreaker {
         Scanner scanner = new Scanner(System.in);
 
         //Encoder//
-        String encodedString = "halløj";
+        String encodedString = "Halløj";
         encodedString = encodedString.toLowerCase();
 
         String stringEncodedToNumbers = numberCypherEncoder(encodedString);
@@ -19,11 +19,11 @@ public class CodeBreaker {
         //I wanted to make a longer string, but couldn't figure out how to make split() ignore spaces
 
         String decodedString = numberCypherDecoder(encodedStringArray);
-        String decodedStringResult = "The decoded message: " + decodedString;
+        String decodedStringResult = "The decoded message was: " + decodedString;
         System.out.println(decodedStringResult);
 
         //CaesarEncoder//
-        String caesarEncodedString = "Ohøj";
+        String caesarEncodedString = "Hep";
         caesarEncodedString = caesarEncodedString.toLowerCase(Locale.ROOT);
 
         String stringEncodedCaesar = ceasarEncoder(caesarEncodedString);
@@ -32,7 +32,7 @@ public class CodeBreaker {
         System.out.println(caesarEncodeStringResult);
 
         //CaesarDecoder//
-        String caesarDecodedString = caesarDecoder(caesarEncodedString);
+        String caesarDecodedString = caesarDecoder(stringEncodedCaesar);
         String caesarDecodedResult = "The decoded caesar message: " + caesarDecodedString;
         System.out.println(caesarDecodedResult);
 
@@ -82,9 +82,9 @@ public class CodeBreaker {
 
         for (int i = 0; i < decode.length; i++) {
             String indexToString = decode[i];
-            int stringToInt = Integer.parseInt(indexToString) - 1;
+            int stringToInt = Integer.parseInt(indexToString)-1;
 
-            int indexToChar = alphabet.charAt(stringToInt);
+            char indexToChar = alphabet.charAt(stringToInt);
 
             stringToDecode = stringToDecode + indexToChar ++;
         }
@@ -101,7 +101,7 @@ public class CodeBreaker {
             char messageIndex = message.charAt(i);
             int charIndex = charToIndexNum(messageIndex);
 
-            int indexShift = (charIndex + 6) % alphabet.length();
+            int indexShift = (charIndex + 3) % alphabet.length();
             char encodedChar = indexNumToChar(indexShift);
 
             encodedString = encodedString + encodedChar;
@@ -111,14 +111,14 @@ public class CodeBreaker {
 
     //Method CaesarDecoder//
     public static String caesarDecoder(String message) {
-
+        int[] stringArray = new int[message.length()];
         String decodedString = "";
 
         for (int i = 0; i < message.length(); i++) {
             char messageIndex = message.charAt(i);
             int charIndex = charToIndexNum(messageIndex);
 
-            int indexShift = (charIndex - 6) % alphabet.length();
+            int indexShift = (charIndex - 3) % alphabet.length();
             char decodedChar = indexNumToChar(indexShift);
 
             decodedString = decodedString + decodedChar;
