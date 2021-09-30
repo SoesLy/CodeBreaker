@@ -4,7 +4,7 @@ public class CodeBreaker {
     public static void main(String[] args) {
 
         //Encoder//
-        String encodedString = "Halløj";
+        String encodedString = "Halløj med dig";
         encodedString = encodedString.toLowerCase();
 
         String stringEncodedToNumbers = numberCypherEncoder(encodedString);
@@ -40,21 +40,21 @@ public class CodeBreaker {
     //Make the alphabet
     static String alphabet = "abcdefghijklmnopqrstuvwxyzæøå";
 
-    //Use methode to find characters index number
+    //Use method to find characters index number
     public static int charToIndexNum(char character) {
         int charIndexNumbers = alphabet.indexOf(character) + 1;
 
         return charIndexNumbers;
     }
 
-    //Use methode to find index numbers character
+    //Use method to find index numbers character
     public static char indexNumToChar(int index) {
         char indexNumbersChar = alphabet.charAt(index - 1);
 
         return indexNumbersChar;
     }
 
-    //Methode Encoder//
+    //Method Encoder//
     public static String numberCypherEncoder(String encoder) {
 
         //Type of return
@@ -65,7 +65,7 @@ public class CodeBreaker {
             char stringToIndex = encoder.charAt(i);
             int charIndex = alphabet.indexOf(stringToIndex) + 1;
 
-            //Gonna add my type to my int
+            //Add the return with the int
             stringToEncode = stringToEncode + charIndex + ";";
         }
 
@@ -73,7 +73,7 @@ public class CodeBreaker {
     }
 
 
-    //Methode Decoder//
+    //Method Decoder//
     public static String numberCypherDecoder(String[] decode) {
 
         String stringToDecode = "";
@@ -90,7 +90,7 @@ public class CodeBreaker {
         return stringToDecode;
     }
 
-    //Methode CeasarEncoder//
+    //Method CeasarEncoder//
     public static String ceasarEncoder(String message) {
 
         String encodedString = "";
@@ -107,7 +107,7 @@ public class CodeBreaker {
         return encodedString;
     }
 
-    //Methode CaesarDecoder//
+    //Method CaesarDecoder//
     public static String caesarDecoder(String message) {
 
         String decodedString = "";
@@ -124,7 +124,5 @@ public class CodeBreaker {
         }
         return decodedString;
     }
-
-
 
 }
