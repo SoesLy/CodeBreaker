@@ -1,10 +1,12 @@
 import java.util.Locale;
+import java.util.Scanner;
 
 public class CodeBreaker {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         //Encoder//
-        String encodedString = "Halløj med dig";
+        String encodedString = "halløj";
         encodedString = encodedString.toLowerCase();
 
         String stringEncodedToNumbers = numberCypherEncoder(encodedString);
@@ -14,9 +16,11 @@ public class CodeBreaker {
 
 
         //Decoder//
-        String[] encodedStringArray = stringEncodedToNumbers.split(stringEncodedToNumbers);
+        String[] encodedStringArray =stringEncodedToNumbers.split(";");
+        //I wanted to make a longer string, but couldn't figure out how to make split() ignore spaces
 
         String decodedString = numberCypherDecoder(encodedStringArray);
+
         String decodedStringResult = "The decoded message: " + decodedString;
         System.out.println(decodedStringResult);
 
